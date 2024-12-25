@@ -2,6 +2,8 @@
 
 Welcome to **DP's Baazar**! This guide will walk you through the steps to set up and view the project in your web browser.
 
+🌐 **Live Website**: [Visit DP's Baazar](https://dhyan6969.pythonanywhere.com/)
+
 ---
 
 ## 🚀 Features
