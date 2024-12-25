@@ -3,7 +3,7 @@ from products.models import Product
 
 # Create your models here.
 class Order(models.Model):
-    customer_name = models.CharField(max_length=100)
+    customer_name = models.CharField(max_length=100, null=True, blank=True)
     email = models.EmailField()
     address = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True) #adds field when the object is first created
