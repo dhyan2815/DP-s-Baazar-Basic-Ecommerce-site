@@ -70,3 +70,8 @@
 .navbar-brand img:hover {
     transform: scale(1.1); /* Slightly enlarge the logo on hover */
 }
+
+.card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
