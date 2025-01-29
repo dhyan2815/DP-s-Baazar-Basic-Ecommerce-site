@@ -2,7 +2,7 @@
 {% include 'includes/navbar.html' %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme='dark'>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,25 +12,36 @@
 </head>
 <body>
     <div class="container my-5">
-        <h1 class="mb-3">My Profile</h1>
-        <p><strong>View your username and cart summary at a glance in the profile section</strong></p>
-        <div class="card mb-4">
+        <!-- Profile Header -->
+        <h3 class="display-5 fw-bold mb-4">My Profile</h3>
+        <p class="lead mb-4">View your username and cart summary at a glance in the profile section.</p>
+
+        <!-- Username Card -->
+        <div class="card shadow-sm mb-4">
             <div class="card-body">
-                <h5><strong>Username:</strong> {{ user.username }}</h5>
+                <h5 class="card-title fw-bold">Username:</h5>
+                <p class="card-text fs-5">{{ user.username }}</p>
             </div>
         </div>
 
-        <h2 class="mb-2">My Cart</h2>
+        <!-- Cart Section -->
+        <h4 class="display-6 fw-bold mb-4">My Cart</h4>
         {% if cart_items %}
-        <ul class="list-group">
+        <ul class="list-group shadow-sm">
             {% for item in cart_items %}
-            <li class="list-group-item">
-                <strong>{{ item.product.name }}</strong> - ₹{{ item.product.price }} x {{ item.quantity }}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <strong class="fs-5">{{ item.product.name }}</strong>
+                    <p class="text-muted mb-0">₹{{ item.product.price }} x {{ item.quantity }}</p>
+                </div>
+                <span class="badge bg-primary rounded-pill fs-6">₹{{ item.subtotal }} {{ item.product.price }}</span>
             </li>
             {% endfor %}
         </ul>
         {% else %}
-        <p>Your cart is empty.</p>
+        <div class="alert alert-info shadow-sm" role="alert">
+            Your cart is empty.
+        </div>
         {% endif %}
     </div>
 
